@@ -19,3 +19,8 @@ sed -i -e 's/'"$OLD_HELP_TEXT"'/'"$NEW_HELP_TEXT"'/g' /usr/share/nginx/html/html
 if grep -q "ng-model=\"Address\"" /usr/share/nginx/html/html/connect.html; then
 	sed -i -e '14,19d' /usr/share/nginx/html/html/connect.html
 fi
+
+# Change to WSS for TLS support
+OLD_WS_CODE='ws:\/\/'
+NEW_WS_CODE='wss:\/\/'
+sed -i -e 's/'"$OLD_WS_CODE"'/'"$NEW_WS_CODE"'/g' /usr/share/nginx/html/js/rconService.js
